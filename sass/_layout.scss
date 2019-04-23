@@ -1,0 +1,29 @@
+
+.container {
+  max-width: 120rem;
+  margin: 8rem auto; // center the container inside its parent element (body)
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark);
+
+  min-height: 50rem; // ONLY for testing purposes
+}
+
+.header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--color-grey-light-2);
+}
+
+.content { // FLEX container (parent of flex items)
+  display: flex; // place sidebar + hotel-view side by side
+}
+
+.sidebar { // FLEX item
+  background-color: var(--color-grey-dark-1);
+  flex: 0 0 18%; // don't grow if space, don't shrink if not space, always 18% width
+}
+
+.hotel-view { // FLEX item
+  background-color: #fff;
+  flex: 1; // grow as much as it can (occupy all the available space that it has)
+}
