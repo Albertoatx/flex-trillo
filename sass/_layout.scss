@@ -12,6 +12,11 @@
   height: 7rem;
   background-color: #fff;
   border-bottom: var(--color-grey-light-2);
+  font-size: 1.4rem; // the global font-size is 10px = 1rem (quite small)
+
+  display: flex; // FLEX container (parent of flex items: logo, search bar, user nav)
+  justify-content: space-between;  // how to align flex items in the main axis
+  align-items: center;             // how to align flex items in the cross axis
 }
 
 .content { // FLEX container (parent of flex items)
