@@ -127,3 +127,37 @@
     margin-right: 1rem;
   }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+//                              CONTENT - SIDEBAR
+///////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////
+// SIDE-NAV
+.side-nav {
+
+  &__item {
+    
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-primary); // change color of svg icon
+  }
+}
+
+//////////////////////////////////////////
+// LEGAL
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2.5rem;
+}

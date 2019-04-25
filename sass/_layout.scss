@@ -26,9 +26,17 @@
 .sidebar { // FLEX item
   background-color: var(--color-grey-dark-1);
   flex: 0 0 18%; // don't grow if space, don't shrink if not space, always 18% width
+
+  display: flex; // Nested flexbox: now 'sidebar' flex item is also a flex container
+  flex-direction: column; // main axis in this container goes from top to bottom
+  justify-content: space-between; // for the 2 flex items of 'sidebar' (sidenav, legal) 
 }
 
 .hotel-view { // FLEX item
   background-color: #fff;
   flex: 1; // grow as much as it can (occupy all the available space that it has)
+
+  // Only for TESTING purposes (remove later)
+  height: 70rem;
+  background-color: orangered;
 }
