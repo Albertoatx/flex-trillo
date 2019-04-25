@@ -137,19 +137,67 @@
 //////////////////////////////////////////
 // SIDE-NAV
 .side-nav {
+  font-size: 1.4rem;
+  list-style: none; 
+  margin-top: 3.5rem;
 
+  // ITEM (<li>)
   &__item {
-    
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+    }
   }
 
-  &__link {
+  &__item::before { // Place elements before each list item for the hover effect
+    content: '';    // always define content for a pseudo-element
+    background-color: var(--color-primary);
+    position: absolute;
+      top: 0;
+      left: 0;
+    height: 100%;   // we want the same height as the list item
+      
+    width: 3px;
+    transform: scaleY(0);       // in the normal state (without any hover)
+    transform-origin: center;   // default value
+    transition: transform .2s,  // animates 3 properties
+                width .4s cubic-bezier(1, 0, 0 , 1) .2s,
+                background-color .1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1); // scales in the Y axis 
+    width: 100%;          // to expand it in the X axis
+  }
+
+  &__item:active::before { // when we click it, set the color a bit brighter
+    background-color: var(--color-primary-light);
+  }
+
+
+  // LINK (<a>)
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
     text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.5rem 3rem;
+
+    //display: block;
+    display: flex;
+    align-items: center; // center its flex items in the cross axis
+
+    z-index: 10;         // links on top of the ::before pseudo element
+    position: relative;  // z-index only works if we specify a position 
   }
 
   &__icon {
     height: 2rem;
     width: 2rem;
-    fill: var(--color-primary); // change color of svg icon
+    margin-right: 2rem;
+    fill: currentColor; // change color of svg icon
   }
 }
 
