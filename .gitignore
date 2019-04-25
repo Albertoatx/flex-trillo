@@ -1,4 +1,7 @@
-/img
+/img/svg
+/img/text.txt
+/img/user-*.jpg
+/img/chevron-thin-right.svg
 /node_modules
 package_old.json
 package-lock.json

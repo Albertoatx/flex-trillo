@@ -157,7 +157,7 @@
       top: 0;
       left: 0;
     height: 100%;   // we want the same height as the list item
-      
+
     width: 3px;
     transform: scaleY(0);       // in the normal state (without any hover)
     transform-origin: center;   // default value
@@ -208,4 +208,62 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//                              CONTENT - HOTEL VIEW
+///////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////
+// GALLERY
+.gallery {
+
+  display: flex;  // Make gallery a Flebox container (flex items will be side by side)
+
+  &__photo {
+    width: 100%;    // For responsive web design, images always need width or height in %
+    display: block; // An image should be block/inline-block if we don't want space underneath
+  }
+}
+
+//////////////////////////////////////////
+// HOTEL OVERVIEW
+.overview {
+
+  display: flex; // make the 'overview' a Flexbox container
+
+  &__heading {
+
+  }
+
+  &__stars {
+    //flex: 1;          // stars occupy all available space (not a good solution)
+    margin-right: auto; // stars occupy only needed space. Rest of space is margin
+
+  }
+
+  &__icon-star, 
+  &__icon-location {
+    width: 1.8rem;
+    height: 1.8rem;
+    fill: var(--color-primary);
+  }
+
+  &__location {
+
+  }
+
+  &__rating {
+    
+  }
+
+  &__rating-average {
+
+  }
+
+  &__rating-count {
+
+  }
+
 }
