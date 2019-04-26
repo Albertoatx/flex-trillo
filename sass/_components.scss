@@ -233,7 +233,7 @@
 
   display: flex; // make the 'overview' a Flexbox container
   align-items: center; // align the flexbox items along the cross axis
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
 
   &__heading {
     font-size: 2.3rem; 
