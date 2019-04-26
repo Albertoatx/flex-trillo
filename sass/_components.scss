@@ -232,15 +232,24 @@
 .overview {
 
   display: flex; // make the 'overview' a Flexbox container
+  align-items: center; // align the flexbox items along the cross axis
+  border-bottom: 1px solid var(--color-grey-light-2);
 
   &__heading {
-
+    font-size: 2.3rem; 
+    font-weight: 400;  // big text but small font-weight
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
   }
 
   &__stars {
     //flex: 1;          // stars occupy all available space (not a good solution)
     margin-right: auto; // stars occupy only needed space. Rest of space is margin
-
+    
+    //line-height: 0;   // an option to remove the small space below each of the stars
+    //font-size: 0;
+    display: flex;      // another option to remove the small space below each of the stars 
   }
 
   &__icon-star, 
@@ -250,20 +259,91 @@
     fill: var(--color-primary);
   }
 
-  &__location {
+  &__icon-location {
+    margin-right: .5rem;
+  }
 
+  &__location {
+    font-size: 1.2rem;   // this is what will be inherited by 'btn-inline'
+    display: flex;       
+    align-items: center; // align on cross axix the flex items of 'location'
   }
 
   &__rating {
-    
+    background-color: var(--color-primary);
+    color: #fff;
+    margin-left: 3rem;
+    padding: 0 2.3rem;
+    align-self: stretch; // override for this single element the 'overview' align-item: center
+
+    display: flex;
+    flex-direction: column;  
+    justify-content: center; // centers on the main axis (in this case it is the Y axis)
+    align-items: center;     // centers on the cross axis (in this case it is the X axis)
   }
 
   &__rating-average {
-
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -3px;    // to decrease the spacing between the 2 ratings.
   }
 
   &__rating-count {
+    font-size: .9rem;
+    text-transform: uppercase;
+  }
+}
 
+//////////////////////////////////////////
+// BUTTON INLINE
+.btn-inline {
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+  color: var(--color-primary);
+  border-bottom: 1px solid currentColor; // border with exact same color as the text
+  padding-bottom: 2px;
+  display: inline-block; // to be able to set the top or bottom padding, height, width 
+  cursor: pointer;
+
+  //-webkit-backface-visibility: hidden;  // NOT works! Added to stop amimation flickering
+  //-moz-backface-visibility: hidden;
+  //backface-visibility: hidden;          
+  //-webkit-transform:translate3d(0,0,0); // NOT works! Added to stop amimation flickering
+  //transform: translate3d(0,0,0);
+  transition: all .2s;
+
+  &:hover {
+    color: var(--color-grey-dark-1);
   }
 
+  &:focus {
+    outline: none; 
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% { // initial state
+    transform: scale(1);
+    box-shadow: none;
+    opacity: 1;
+    //transform-origin: 0 0;
+    //filter: none;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: .7;
+    box-shadow: 0 1rem 4rem rbga(0, 0, 0, .25); //x y blur color with opacity
+    //transform-origin: 0 0;
+  }
+
+  100% { // back to the initial state 
+    transform: scale(1);
+    box-shadow: none;
+    opacity: 1;
+    //transform-origin: 0 0;
+    //filter: none;
+  }
 }
