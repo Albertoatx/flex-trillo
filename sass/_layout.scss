@@ -60,7 +60,12 @@
 }
 
 .user-reviews {
-  background-color: yellowgreen; // ONLY for testing purposes
+  //background-color: yellowgreen; // ONLY for testing purposes
 
   flex: 1;      // occupy the remaining space
+  font-size: 1.4rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

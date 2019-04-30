@@ -313,8 +313,17 @@
   //transform: translate3d(0,0,0);
   transition: all .2s;
 
+  & span {
+    margin-left: 3px;
+    transition: margin-left .2s;
+  }
+
   &:hover {
     color: var(--color-grey-dark-1);
+
+    span {
+      margin-left: 8px;
+    }
   }
 
   &:focus {
@@ -423,5 +432,71 @@
     &:not(:last-child) {
       margin-right: -1.5rem;  // place images artially on top of each other 
     }
+  }
+}
+
+//////////////////////////////////////////
+// REVIEWS
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;     // avoid the quotation mark overflowing the review white box
+
+  &__text {
+    margin-bottom: 2rem;
+
+    z-index: 10;         // avoid the quotation mark on top of the review text
+      position: relative;// z-index only works if we set the position    
+  }
+
+  &__user {
+    display: flex;       // the flex container (by default flex-direction: row)
+    align-items: center; // align flex items in the cross axis (here is vertically)
+  }
+
+  &__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+
+  &__user-box {
+    margin-right: auto;  // to push the 'rating' all the way to the right side.
+  }
+
+  &__user-name {
+    font-size: 1.5rem;
+    font-weight: 600;    // make it bold
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+  }
+
+  &__user-date {
+    font-size: 1.2rem;
+    color: var(--color-grey-dark-3); 
+  }
+
+  &__rating {
+    font-size: 2.2rem;
+    font-weight: 300;  // to compensate for the bigger font-size
+    color: var(--color-primary);
+
+  }
+
+  // Quotation mark
+  &::before {
+    content: '\201C';   // symbol for the double quotation mark
+    position: absolute; // relative to the parent ('review')
+      top: -2.5rem;
+      left: -1rem;
+    font-size: 20rem;
+    font-family: sans-serif;
+    line-height: 1;     // avoid the quotation mark to occupy huge space
+    color: var(--color-grey-light-2);
+    //z-index: 1;
   }
 }
