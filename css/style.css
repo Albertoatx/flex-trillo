@@ -232,7 +232,7 @@ body {
     opacity: 1; }
   50% {
     transform: scale(1);
-    opacity: .7;
+    opacity: .8;
     box-shadow: 0 1rem 4rem rbga(0, 0, 0, 0.25); }
   100% {
     transform: scale(1);
@@ -323,6 +323,52 @@ body {
     font-family: sans-serif;
     line-height: 1;
     color: var(--color-grey-light-2); }
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center; }
+  .cta__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 3.5rem;
+    text-transform: uppercase; }
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative; }
+  .btn__visible {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 2rem 7.5rem;
+    transition: all .2s; }
+  .btn__invisible {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 2rem 0rem;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    transition: all .2s; }
+  .btn:hover {
+    background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+    animation: pulsate 1s infinite; }
+  .btn:hover .btn__visible {
+    transform: translateY(100%); }
+  .btn:hover .btn__invisible {
+    top: 0; }
+  .btn:focus {
+    outline: none;
+    animation: pulsate 1s infinite; }
 
 .container {
   max-width: 120rem;

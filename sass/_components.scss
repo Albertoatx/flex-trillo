@@ -343,7 +343,7 @@
 
   50% {
     transform: scale(1);
-    opacity: .7;
+    opacity: .8;
     box-shadow: 0 1rem 4rem rbga(0, 0, 0, .25); //x y blur color with opacity
     //transform-origin: 0 0;
   }
@@ -498,5 +498,80 @@
     line-height: 1;     // avoid the quotation mark to occupy huge space
     color: var(--color-grey-light-2);
     //z-index: 1;
+  }
+}
+
+
+//////////////////////////////////////////
+// CALL TO ACTION
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 3.5rem;
+    text-transform: uppercase;
+  }
+}
+
+//////////////////////////////////////////
+// BUTTON 
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;  // button rounded at the sides
+  border: none;
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;      // hides the overflowed text
+  position: relative;
+
+  // NOTE: We can refactor the repeated code in &__visible and &__invisible
+  // & > * {  // select all btn children
+  //   display: inline-block; 
+  //   height: 100%;          
+  //   width: 100%;
+  //   transition: all .2s;
+  // }
+  
+  &__visible {
+    display: inline-block; // to be able to give it padding (by default is inline)
+    height: 100%;          // so that it has the same height of the parent element (btn)
+    width: 100%;
+    padding: 2rem 7.5rem;
+    transition: all .2s;
+  }
+
+  &__invisible {
+    display: inline-block;    
+    height: 100%;         // so that it has the same height of the parent element (btn)
+    width: 100%;
+    padding: 2rem 0rem;
+    position: absolute;   // to put this text outside of our button
+      top: -100%;         // initial state invisible: move it up exactly the size of the element
+      left: 0;
+    transition: all .2s;
+  }
+
+  &:hover {
+    background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+    animation: pulsate 1s infinite;
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%); // translateY to hide the visible text (100% of its height)
+  }
+
+  &:hover &__invisible {
+      top: 0;        // the position to make visible the invisible text
+  } 
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
   }
 }
