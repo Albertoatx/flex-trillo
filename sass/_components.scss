@@ -141,13 +141,27 @@
   list-style: none; 
   margin-top: 3.5rem;
 
+  // for medium screens place the sidebar items side by side
+  @media only screen and (max-width: $bp-medium) { 
+    display: flex;
+    margin: 0; 
+  } 
+
   // ITEM (<li>)
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: .5rem;
+
+      @media only screen and (max-width: $bp-medium) { 
+        margin-bottom: 0; // medium screens remove margin-bottom in sidebar items
+      } 
     }
+
+    @media only screen and (max-width: $bp-medium) { 
+      flex: 1; // sidebar items to grow as much as they can (occupy same space)
+    } 
   }
 
   &__item::before { // Place elements before each list item for the hover effect
@@ -191,6 +205,11 @@
 
     z-index: 10;         // links on top of the ::before pseudo element
     position: relative;  // z-index only works if we specify a position 
+
+    @media only screen and (max-width: $bp-medium) { 
+      justify-content: center; // medium screens center content inside each sidebar item
+      padding: 2rem;
+    } 
   }
 
   &__icon {
@@ -208,6 +227,11 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  // for medium screens get rid of the legal message in the sidebar
+  @media only screen and (max-width: $bp-medium) { 
+    display: none; 
+  } 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -422,6 +446,10 @@
     margin-right: auto;
   }
 
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     height: 3.5rem;
     width: 3.5rem;
@@ -444,6 +472,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;     // avoid the quotation mark overflowing the review white box
+
+  @media only screen and (max-width: $bp-medium) { 
+    padding: 2rem; // for medium screens reduce the padding
+    margin-bottom: 3rem;
+  } 
 
   &__text {
     margin-bottom: 2rem;
@@ -507,6 +540,10 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) { 
+    padding: 2.5rem 0; // for medium screens reduce the padding
+  } 
 
   &__book-now {
     font-size: 2rem;

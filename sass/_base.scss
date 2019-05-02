@@ -21,6 +21,12 @@
   --line: 1px solid var(--color-grey-light-2);
 }
 
+// Sass variables needed for media queries breakpoints
+$bp-largest: 75em;       // 1200px / 16px
+$bp-large: 68.75em;      // 1100px / 16px
+$bp-medium: 62.5em;      // 1000px / 16px
+
+
 // Global reset
 * {
   padding: 0;
@@ -36,6 +42,14 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;    // Normal style: 1rem = 10px, so 10/16px (62.5). Default browser font size is 16px
+
+  @media only screen and (max-width: $bp-large) { 
+    font-size: 56.26%; // I want 1rem = 9px, so 9px/16px (56.25%)
+  } 
+
+  @media only screen and (max-width: $bp-medium) { 
+    font-size: 53.125%; // I want 1rem = 8.5px, so 8.5px/16px (53.125%)
+  } 
 }
 
 body {
