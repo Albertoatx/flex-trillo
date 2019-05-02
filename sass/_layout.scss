@@ -3,12 +3,12 @@
   max-width: 120rem;
   margin: 8rem auto; // center the container inside its parent element (body)
   background-color: var(--color-grey-light-1);
-  box-shadow: var(--shadow-dark);
+  box-shadow: var(--shadow-light);
 
-  min-height: 50rem; // ONLY for testing purposes
+  //min-height: 50rem; // ONLY for testing purposes
 
   @media only screen and (max-width: $bp-largest) { 
-    margin: 0;
+    margin: 0rem;
     max-width: 100%;
     //width: 100%;
   } 

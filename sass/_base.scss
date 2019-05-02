@@ -27,6 +27,8 @@ $bp-large: 68.75em;      // 1100px / 16px
 $bp-medium: 62.5em;      // 1000px / 16px
 $bp-small: 43.75em;       // 700px / 16px
 $bp-smallest: 31.25em;    // 500px / 16px
+$bp-xsmallest: 26.25em;   // 420px / 16px
+//$bp-xsmallest: 25.625em;   // 420px / 16px
 
 
 // Global reset
@@ -73,5 +75,5 @@ body {
   );
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh; // Want the body to cover all the viewport height
+  //min-height: 100vh; // Want the body to cover all the viewport height
 }
