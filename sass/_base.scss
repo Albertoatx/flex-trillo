@@ -25,6 +25,8 @@
 $bp-largest: 75em;       // 1200px / 16px
 $bp-large: 68.75em;      // 1100px / 16px
 $bp-medium: 62.5em;      // 1000px / 16px
+$bp-small: 43.75em;       // 700px / 16px
+$bp-smallest: 31.25em;    // 500px / 16px
 
 
 // Global reset
@@ -49,6 +51,10 @@ html {
 
   @media only screen and (max-width: $bp-medium) { 
     font-size: 53.125%; // I want 1rem = 8.5px, so 8.5px/16px (53.125%)
+  } 
+
+  @media only screen and (max-width: $bp-small) { 
+    font-size: 50%; // I want 1rem = 8px, so 8.5px/16px (50%)
   } 
 }
 

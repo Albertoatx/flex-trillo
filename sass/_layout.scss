@@ -23,6 +23,14 @@
   display: flex; // FLEX container (parent of flex items: logo, search bar, user nav)
   justify-content: space-between;  // how to align flex items in the main axis
   align-items: center;             // how to align flex items in the cross axis
+
+  // for smallest screens if there is not enough space in the container move 
+  // flex items to a new row (we want to use this for the 'search box')
+  @media only screen and (max-width: $bp-smallest) { 
+    flex-wrap: wrap; 
+    height: 11rem;  // enough vertical space for all items in the header
+    align-content: space-around;
+  } 
 }
 
 .content { // FLEX container (parent of flex items)
@@ -61,6 +69,11 @@
   @media only screen and (max-width: $bp-medium) { 
     padding: 3rem; // for medium screens reduce the padding
   } 
+
+  // for small screens put flex items (description + user-reviews) one bellow each other
+  @media only screen and (max-width: $bp-small) { 
+    flex-direction: column; 
+  } 
 }
 
 .description {
@@ -75,6 +88,11 @@
   @media only screen and (max-width: $bp-medium) { 
     padding: 2rem;      // for medium screens reduce the padding
     margin-right: 3rem; // same as its parent padding
+  } 
+
+  @media only screen and (max-width: $bp-small) { 
+    margin-right: 0; // for small screens no margin on the right, only on the bottom
+    margin-bottom: 3rem;
   } 
 }
 

@@ -32,6 +32,9 @@ html {
   @media only screen and (max-width: 62.5em) {
     html {
       font-size: 53.125%; } }
+  @media only screen and (max-width: 43.75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -52,6 +55,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+  @media only screen and (max-width: 31.25em) {
+    .search {
+      order: 1;
+      flex: 0 0 100%; } }
   .search__input {
     font-family: inherit;
     font-size: inherit;
@@ -63,6 +70,9 @@ body {
     width: 90%;
     transition: all .2s;
     margin-right: -3.2rem; }
+    @media only screen and (max-width: 31.25em) {
+      .search__input {
+        margin-right: 0; } }
     .search__input:focus {
       width: 100%;
       outline: none;
@@ -81,6 +91,9 @@ body {
     height: 2rem;
     width: 2rem;
     fill: var(--color-grey-dark-3); }
+    @media only screen and (max-width: 31.25em) {
+      .search__icon {
+        margin-left: -4rem; } }
 
 .user-nav {
   align-self: stretch;
@@ -165,11 +178,21 @@ body {
       .side-nav__link:link, .side-nav__link:visited {
         justify-content: center;
         padding: 2rem; } }
+    @media only screen and (max-width: 43.75em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        flex-direction: column;
+        padding: 1.5rem .5rem; } }
   .side-nav__icon {
     height: 2rem;
     width: 2rem;
     margin-right: 2rem;
     fill: currentColor; }
+    @media only screen and (max-width: 43.75em) {
+      .side-nav__icon {
+        margin-right: 0;
+        margin-bottom: .5rem;
+        height: 1.7rem;
+        width: 1.7rem; } }
 
 .legal {
   font-size: 1.2rem;
@@ -196,6 +219,10 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem; }
+    @media only screen and (max-width: 43.75em) {
+      .overview__heading {
+        font-size: 1.8rem;
+        padding: 1.2rem 2rem; } }
   .overview__stars {
     margin-right: auto;
     display: flex; }
@@ -219,13 +246,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+    @media only screen and (max-width: 43.75em) {
+      .overview__rating {
+        padding: 0 1.5rem; } }
   .overview__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px; }
+    @media only screen and (max-width: 43.75em) {
+      .overview__rating-average {
+        font-size: 1,8rem; } }
   .overview__rating-count {
     font-size: .9rem;
     text-transform: uppercase; }
+    @media only screen and (max-width: 43.75em) {
+      .overview__rating-count {
+        font-size: .8rem; } }
 
 .btn-inline {
   border: none;
@@ -421,6 +457,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  @media only screen and (max-width: 31.25em) {
+    .header {
+      flex-wrap: wrap;
+      height: 11rem;
+      align-content: space-around; } }
 
 .content {
   display: flex; }
@@ -447,6 +488,9 @@ body {
   @media only screen and (max-width: 62.5em) {
     .detail {
       padding: 3rem; } }
+  @media only screen and (max-width: 43.75em) {
+    .detail {
+      flex-direction: column; } }
 
 .description {
   flex: 0 0 60%;
@@ -459,6 +503,10 @@ body {
     .description {
       padding: 2rem;
       margin-right: 3rem; } }
+  @media only screen and (max-width: 43.75em) {
+    .description {
+      margin-right: 0;
+      margin-bottom: 3rem; } }
 
 .user-reviews {
   flex: 1;

@@ -19,6 +19,11 @@
   justify-content: center;  // align flex items in the main axis
   align-items: center;      // align flex items in the cross axis
 
+  @media only screen and (max-width: $bp-smallest) { 
+    order: 1; // move the search box to be the last flex item in the flex container 
+    flex: 0 0 100%; // don't grow, don't shrink, occupy 100% of the header
+  } 
+
   &__input {
     font-family: inherit; // <input> doesn't inherit the font-family of global document
     font-size: inherit;
@@ -30,6 +35,10 @@
     width: 90%;           // 90% of parent element (search)
     transition: all .2s;
     margin-right: -3.2rem; // for the button to move on top of the input
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-right: 0;
+    }
 
     &:focus {
       width: 100%;         // make input bigger when on focus
@@ -64,7 +73,11 @@
   &__icon {
     height: 2rem;
     width: 2rem;
-    fill: var(--color-grey-dark-3)
+    fill: var(--color-grey-dark-3);
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-left: -4rem;
+    }
   }
 }
 
@@ -210,6 +223,11 @@
       justify-content: center; // medium screens center content inside each sidebar item
       padding: 2rem;
     } 
+
+    @media only screen and (max-width: $bp-small) { 
+      flex-direction: column; // small screens place the icon above the navigation text
+      padding: 1.5rem .5rem;
+    } 
   }
 
   &__icon {
@@ -217,6 +235,13 @@
     width: 2rem;
     margin-right: 2rem;
     fill: currentColor; // change color of svg icon
+
+    @media only screen and (max-width: $bp-small) { 
+      margin-right: 0;  // to center the icon
+      margin-bottom: .5rem;
+      height: 1.7rem;
+      width: 1.7rem;
+    } 
   }
 }
 
@@ -265,6 +290,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) { 
+      font-size: 1.8rem; 
+      padding: 1.2rem 2rem;
+    } 
   }
 
   &__stars {
@@ -304,17 +334,29 @@
     flex-direction: column;  
     justify-content: center; // centers on the main axis (in this case it is the Y axis)
     align-items: center;     // centers on the cross axis (in this case it is the X axis)
+
+    @media only screen and (max-width: $bp-small) { 
+      padding: 0 1.5rem;
+    } 
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;    // to decrease the spacing between the 2 ratings.
+
+    @media only screen and (max-width: $bp-small) { 
+      font-size: 1,8rem;
+    }
   }
 
   &__rating-count {
     font-size: .9rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) { 
+      font-size: .8rem;
+    }
   }
 }
 
