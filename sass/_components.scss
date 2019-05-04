@@ -133,7 +133,7 @@
   }
 
   &__user {
-    
+    width: 100%;
   }
 
   &__user-photo {
@@ -144,25 +144,36 @@
 
   // CHALLENGE 1 --------------------------------------------------
   &__dropdown {
-    display: none;             // by default make dropdown invisible
+    //display: none;             // by default make dropdown invisible
+    opacity: 0;
+    visibility: hidden;
+    display: flex;              
+    flex-direction: column;     // flex items (list elements) placed from top to bottom
+
     position: absolute;
-      top: 100%;
+      top: 100%;                // to not cover the username element
       right: 0;
-    width: 20rem;
-    z-index: 20;               // when displayed be on top of other components
+    //width: 20rem;
+    z-index: 20;                // when displayed be on top of other components
     background-color: var(--color-grey-dark-1);
     color: white;
+
+    // for smallest screens
+    @media only screen and (max-width: $bp-smallest) { 
+      width: 100vw;              // dropdown menu to occupy all viewport width
+      align-items: flex-end;     // for the animation effect to begin from the edge
+    } 
   }
 
   &__user:hover &__dropdown {
-    display: block;             // make dropdown visible when we hover the user
+    //display: block;             // make dropdown visible when we hover the user
+    opacity: 1;
+    visibility: visible;
   }
     
   // <ul> 
   &__dropdown-list {
     list-style: none;
-    display: flex;              
-    flex-direction: column;     // flex items (list elements) placed from top to bottom
   }
     
   // <li>
@@ -174,6 +185,11 @@
     &:hover .user-nav__dropdown-icon { // on hover change the icon color
       fill: var(--color-primary-light-3);
       transform: scale(1.2); 
+    }
+
+    // for smallest screens
+    @media only screen and (max-width: $bp-smallest) { 
+      padding-right: 35vw;          // place the dropdown items near the center
     }
   }
 
@@ -197,6 +213,11 @@
   &__dropdown-item:hover::before {
     transform: scaleY(1);        // scales in the Y axis 
     width: 100%;                 // to expand it in the X axis
+
+    // for smallest screens
+    @media only screen and (max-width: $bp-smallest) { 
+      width: 100vw; 
+    } 
   }
 
   &__dropdown-item:active::before { // when we click it, set the color a bit brighter
