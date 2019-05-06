@@ -96,6 +96,14 @@ body {
       .search__icon {
         margin-left: -4rem; } }
 
+@keyframes zoomInAndOut {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.4); }
+  100% {
+    transform: scale(1); } }
+
 .user-nav {
   align-self: stretch;
   display: flex;
@@ -111,6 +119,9 @@ body {
     background-color: var(--color-grey-light-2); }
   .user-nav__icon-box {
     position: relative; }
+    .user-nav__icon-box:hover > :nth-child(2) {
+      background-color: var(--color-primary-light);
+      animation: zoomInAndOut 0.6s ease-in-out; }
   .user-nav__icon {
     height: 2.25rem;
     width: 2.25rem;
@@ -128,8 +139,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; }
-  .user-nav__user {
-    width: 100%; }
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
@@ -149,7 +158,8 @@ body {
       .user-nav__dropdown {
         width: 100vw;
         align-items: flex-end; } }
-  .user-nav__user:hover .user-nav__dropdown {
+  .user-nav__user:hover .user-nav__dropdown,
+  .user-nav__icon-box:hover .chat {
     opacity: 1;
     visibility: visible; }
   .user-nav__dropdown-list {
@@ -196,6 +206,63 @@ body {
     margin-right: 2rem;
     fill: currentColor;
     transition: transform .3s; }
+
+.chat {
+  visibility: hidden;
+  opacity: 0;
+  width: 35rem;
+  position: absolute;
+  top: 100%;
+  right: -13.4rem;
+  z-index: 20;
+  font-size: 1.2rem;
+  background-color: #fff;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.5); }
+  @media only screen and (max-width: 26.25em) {
+    .chat {
+      width: 100vw; } }
+  .chat__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column; }
+  .chat__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.2rem 1.3rem;
+    transition: background-color .2s; }
+    .chat__item:not(:last-child) {
+      border-bottom: var(--line); }
+    .chat__item:not(:last-child):hover {
+      background-color: var(--color-grey-light-1); }
+    .chat__item:hover .chat__photo {
+      border: 2px solid var(--color-primary);
+      animation: zoomInAndOut 0.6s ease-in-out; }
+  .chat__photo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-right: 1rem;
+    border: 2px solid #fff;
+    transition: border .5s; }
+  .chat__box {
+    flex: 0 0 83%;
+    display: flex;
+    flex-direction: column; }
+  .chat__info {
+    display: flex;
+    margin-bottom: 0.2rem; }
+  .chat__user-name {
+    font-weight: 600;
+    margin-right: auto; }
+  .chat__timestamp {
+    font-size: 1.1rem;
+    color: var(--color-primary-dark); }
+  .chat__preview {
+    font-size: 1.1rem; }
+  .chat__btn {
+    align-self: center; }
 
 .side-nav {
   font-size: 1.4rem;

@@ -82,6 +82,19 @@
 }
 
 
+// Animation for the user-nav icons
+@keyframes zoomInAndOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 //////////////////////////////////////////
 // USER NAVIGATION
 .user-nav {
@@ -108,6 +121,13 @@
 
   &__icon-box {
     position: relative;
+    //transition: all .3s;
+
+    &:hover > :nth-child(2) { // apply only to 2nd children of icon-box (__notification)
+      background-color: var(--color-primary-light);
+
+      animation: zoomInAndOut 0.6s ease-in-out;
+    }
   }
 
   &__icon {
@@ -133,7 +153,7 @@
   }
 
   &__user {
-    width: 100%;
+    //width: 100%;
   }
 
   &__user-photo {
@@ -165,12 +185,14 @@
     } 
   }
 
-  &__user:hover &__dropdown {
+  &__user:hover &__dropdown,
+  &__icon-box:hover .chat  // For CHALLENGE 2: make chat menu visible
+  {
     //display: block;             // make dropdown visible when we hover the user
     opacity: 1;
     visibility: visible;
   }
-    
+
   // <ul> 
   &__dropdown-list {
     list-style: none;
@@ -244,6 +266,108 @@
     margin-right: 2rem;
     fill: currentColor;        // change color of svg icon
     transition: transform .3s; // for the transform: scale(1.2);
+  }
+}
+
+//////////////////////////////////////
+/// CHAT - CHALLENGE2
+.chat {
+  visibility: hidden;            // by default make chat menu invisible
+  opacity: 0;
+
+  width: 35rem;
+  position: absolute;
+    top: 100%;           
+    right: -13.4rem;            
+  
+  z-index: 20;                  // when displayed be on top of other components
+  font-size: 1.2rem;
+  background-color: #fff;
+  box-shadow: 0 1.5rem 3rem rgba(#000, .5);
+
+  // for extra-smallest screens
+  @media only screen and (max-width: $bp-xsmallest) { 
+    width: 100vw;               // chat menu to occupy all viewport width 
+  } 
+
+  // <ul>
+  &__list {
+    list-style: none;
+    //height: 27rem;
+    //overflow: scroll;         // show scrollbar if height > 27rem
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  // <li>
+  &__item {
+    display: flex;               // flex items (photo + box) on the same row
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 1.2rem 1.3rem;
+    transition: background-color .2s;
+
+    &:not(:last-child) {
+      border-bottom: var(--line);
+    }
+
+    &:not(:last-child):hover { 
+      background-color: var(--color-grey-light-1); // background when we hover
+    }
+
+    &:hover .chat__photo {
+      border: 2px solid var(--color-primary);   // color the border of photo
+
+      animation: zoomInAndOut 0.6s ease-in-out;
+    }
+  }
+
+  // <img>
+  &__photo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-right: 1rem;
+
+    border: 2px solid #fff;
+    transition: border .5s;
+  }
+
+  // <div>
+  &__box {
+    flex: 0 0 83%;  // don't grow, don't shrink, occupy 83% of its container (__item) 
+
+    display: flex;
+    flex-direction: column; // its flex items (info + preview) on different lines
+  }
+
+  // <div>
+  &__info {
+    display: flex;          // its flex items (user-name + timestamp) on same row
+    margin-bottom: 0.2rem;
+  }
+
+  // <p>
+  &__user-name {
+    font-weight: 600;
+    margin-right: auto;   // user-name with only needed space. Rest of space is margin
+  }
+
+  // <p>
+  &__timestamp {
+    font-size: 1.1rem;
+    color: var(--color-primary-dark);
+  }
+
+  // <p>
+  &__preview {
+    font-size: 1.1rem;
+  }
+
+  &__btn {
+    align-self: center;
   }
 }
 
