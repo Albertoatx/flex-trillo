@@ -55,7 +55,8 @@ body {
   flex: 0 0 40%;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  position: relative; }
   @media only screen and (max-width: 31.25em) {
     .search {
       order: 1;
@@ -78,6 +79,9 @@ body {
       width: 100%;
       outline: none;
       background-color: var(--color-grey-light-3); }
+    .search__input:not(:placeholder-shown) ~ .suggestions {
+      visibility: visible;
+      opacity: 1; }
     .search__input::-webkit-input-placeholder {
       font-weight: 100;
       color: var(--color-grey-light-4); }
@@ -237,7 +241,7 @@ body {
       background-color: var(--color-grey-light-1); }
     .chat__item:hover .chat__photo {
       border: 2px solid var(--color-primary);
-      animation: zoomInAndOut 0.6s ease-in-out; }
+      animation: zoomInAndOut 0.4s ease-in-out; }
   .chat__photo {
     width: 4rem;
     height: 4rem;
@@ -263,6 +267,80 @@ body {
     font-size: 1.1rem; }
   .chat__btn {
     align-self: center; }
+
+.suggestions {
+  visibility: hidden;
+  opacity: 0;
+  width: 47rem;
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  background-color: #fff;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.5);
+  border-radius: .5rem; }
+  @media only screen and (max-width: 31.25em) {
+    .suggestions {
+      top: 100%;
+      left: 0;
+      width: 100vw;
+      transform: none; } }
+  .suggestions__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column; }
+  .suggestions__item {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    transition: background-color .2s; }
+    .suggestions__item:not(:last-child) {
+      border-bottom: var(--line); }
+    .suggestions__item:hover {
+      background-color: var(--color-grey-light-1); }
+    .suggestions__item:hover .suggestions__photo {
+      border: 2px solid var(--color-primary-light-2); }
+    .suggestions__item:hover .suggestions__rating {
+      border: 1px solid var(--color-primary-light); }
+  .suggestions__photo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-right: .5rem;
+    border: 2px solid var(--color-grey-light-4);
+    transition: border .5s; }
+  .suggestions__item-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 1rem; }
+  .suggestions__name {
+    font-size: 1.2rem; }
+  .suggestions__location {
+    font-size: 1.1rem; }
+  .suggestions__stars {
+    display: flex;
+    margin-left: -1px;
+    margin-top: 2px; }
+  .suggestions__icon-star {
+    width: 1.35rem;
+    height: 1.35rem;
+    fill: var(--color-primary); }
+  .suggestions__rating {
+    color: #fff;
+    background-color: var(--color-primary-light-2);
+    font-size: 1.5rem;
+    font-weight: 300;
+    padding: 1rem 1.5rem;
+    border: 1px solid #fff;
+    transition: border .5s;
+    margin-left: auto; }
+    @media only screen and (max-width: 31.25em) {
+      .suggestions__rating {
+        margin-right: .7rem; } }
 
 .side-nav {
   font-size: 1.4rem;
