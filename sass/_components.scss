@@ -628,10 +628,64 @@
 .gallery {
 
   display: flex;  // Make gallery a Flebox container (flex items will be side by side)
+  overflow: hidden; // cuts out elements inside the gallery which are overflowing (are bigger) 
 
   &__photo {
     width: 100%;    // For responsive web design, images always need width or height in %
     display: block; // An image should be block/inline-block if we don't want space underneath
+
+    filter: brightness(100%) contrast(100%); // initial values
+    transition: filter .4s;
+  }
+
+  // CHALLENGE4 --------------------------------------------------
+  // <figure>
+  &__item {
+    position: relative;
+  }
+  
+  // <figcaption>
+  &__caption {
+    opacity: 0;         // hide it before we hover it.
+    position: absolute; // center caption on top of image (relative to its __item container)
+      bottom: 0;
+      right: -70%;
+
+    color: var(--color-grey-light-2);
+    background-color: rgba(0,0,0, 0.6);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    padding: .5rem 2rem;
+    border-left: .6rem solid var(--color-primary);
+    transition: all .4s;
+
+    // for small screens
+    @media only screen and (max-width: $bp-small) { 
+      font-size: 1.2rem;
+      padding: .3rem 1rem; 
+    } 
+
+    // for smallest screens
+    @media only screen and (max-width: $bp-smallest) { 
+      font-size: 1.1rem;
+      padding: 0 .5rem; 
+      width: 100%;
+      text-align: center;
+      border-left: .3rem solid var(--color-primary);
+      border-right: .3rem solid var(--color-primary);
+    } 
+  }
+
+  // when an item in the gallery is hovered, we want to show and move the caption
+  &__item:hover &__caption {
+    opacity: 1;
+    right: 0;
+  }
+
+  // when an item in the gallery is hovered, we want to change some image properties
+  &__item:hover &__photo {
+    opacity: 1;
+    filter: brightness(102%) contrast(105%);
   }
 }
 
